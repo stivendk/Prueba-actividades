@@ -25,13 +25,15 @@ public class Actividad implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id")
-	private Integer id;
+	private Long id;
 	@Column(name = "titulo")
 	private String titulo;
 	@Column(name = "descripcion")
 	private String descripcion;
 	@Column(name = "hora_inicio")
 	private Date horaInicio;
+	@Column(name = "estado")
+	private String estado;
 	@Column(name = "hora_final")
 	private Date horaFinal;
 
@@ -43,20 +45,21 @@ public class Actividad implements Serializable {
 
 	}
 
-	public Actividad(String titulo, String descripcion, Date horaInicio, Date horaFin, Usuario idUsuario) {
+	public Actividad(String titulo, String descripcion, Date horaInicio, Date horaFin, Usuario idUsuario, String estado) {
 		super();
 		this.titulo = titulo;
 		this.descripcion = descripcion;
 		this.horaInicio = horaInicio;
 		this.horaFinal = horaFin;
 		this.idUsuario = idUsuario;
+		this.estado = estado;
 	}
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -98,6 +101,14 @@ public class Actividad implements Serializable {
 
 	public void setIdUsuario(Usuario idUsuario) {
 		this.idUsuario = idUsuario;
+	}
+
+	public String getEstado() {
+		return estado;
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
 	}
 
 }

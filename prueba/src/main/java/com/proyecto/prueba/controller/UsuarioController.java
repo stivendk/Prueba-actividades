@@ -25,13 +25,13 @@ public class UsuarioController {
 
 	// Metodo para listar todas las actividades
 	@GetMapping("/usuarios")
-	public Iterable<Usuario> listarUsuarios() {
+	public List<Usuario> listarUsuarios() {
 		return usuarioRepositorio.findAll();
 	}
 
 	// Metodo para crear usuarios-
 	@PostMapping("/usuarios")
-	public Usuario crearUsuario(Usuario u) {
+	public Usuario crearUsuario(@RequestBody Usuario u) {
 		return usuarioRepositorio.save(u);
 	}
 }
